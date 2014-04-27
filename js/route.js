@@ -4,6 +4,8 @@ var Route = (function($, Controller) {
     $("#aggiungiMateria").on("click", function() {
       $("#addMateria").foundation('reveal', 'open');
     });
+
+    $("#addMateriaInvia").on("click", Controller.saveMateria);
     //$("#statistiche").on("click", showStatistiche);
     //$("#aboutMe").on("click", showAboutMe);
   };

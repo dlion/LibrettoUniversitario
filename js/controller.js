@@ -13,6 +13,26 @@ var Controller = (function(window,$) {
 
 
   return {
+    saveMateria: function() {
+      var dati = {
+        cfu: $("#addMateriaCFU").val(),
+        nome: $("#addMateriaNome").val(),
+        docente: $("#addMateriaDocente").val(),
+        voto: $("#addMateriaVoto").val(),
+        data: {
+          giorno: $("#addMateriaGiorno").val(),
+          mese: $("#addMateriaMese").val(),
+          anno: $("#addMateriaAnno").val()
+        },
+        note: $("#addMateriaNote").val()
+      };
+      /**
+       * TODO: Qui salvo i dati in localstorage
+       */
+      console.log(dati);
+      $("#addMateria").foundation('reveal', 'close');
+    },
+
     checkData: function () {
       var dati = window.localStorage.getItem(dbName);
       if(dati) {
