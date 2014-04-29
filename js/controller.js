@@ -31,10 +31,9 @@ var Controller = (function(window,$) {
     var DB = JSON.parse(window.localStorage.getItem("MaterieDB"));
     if(DB.length > 0) {
       console.log("ORA GUARDO LE MEMBRA");
+      $("#listone").html("");
       for(i=0; i < DB.length; i++) {
-        for(index in DB[i]) {
-          console.log("VEDO: "+DB[i][index]);
-        }
+        $("#listone").append("<div class='small-12 large-12 columns'><p class='materiaListone' id='"+DB[i].id+"'>"+DB[i].nome+"</p></div>");
       }
     }
     else {
@@ -58,6 +57,11 @@ var Controller = (function(window,$) {
       $("#addMateriaAnno"),
       $("#addMateriaNote")
     ];
+
+    //Se non ci sono dati creo l'array
+    checkData();
+    //Accodo gli elementi al localStorage
+    tmp = JSON.parse(window.localStorage.getItem("MaterieDB"));
     //Oggetto da aggiungere al localStorage
     var dati = {
       cfu: form[0].val(),
@@ -67,13 +71,10 @@ var Controller = (function(window,$) {
       giorno: form[4].val(),
       mese: form[5].val(),
       anno: form[6].val(),
-      note: form[7].val()
+      note: form[7].val(),
+      id: (tmp.length)+1
     };
 
-    //Se non ci sono dati creo l'array
-    checkData();
-    //Accodo gli elementi al localStorage
-    tmp = JSON.parse(window.localStorage.getItem("MaterieDB"));
     tmp.push(dati);
     window.localStorage.setItem("MaterieDB", JSON.stringify(tmp));
 
