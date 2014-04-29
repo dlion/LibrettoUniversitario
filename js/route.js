@@ -15,12 +15,7 @@ var Route = (function($, Controller) {
      * Controllo iniziale
      */
     init: function () {
-      if(Controller.checkData()) {
-        Controller.showData();
-      }
-      else {
-        console.log("NESSUN DORMA");
-      }
+      Controller.showData();
       bindAction();
     }
   };
