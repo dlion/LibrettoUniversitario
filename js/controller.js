@@ -24,20 +24,22 @@ var Controller = (function(window, $, Foundation) {
    * Funzione per mostrare i dati del localStorage
    */
   var showData = function () {
-    var i, index;
+    var i;
     //Se non esiste lo creo
     checkData();
     //Prendo i dati
     var DB = JSON.parse(window.localStorage.getItem("MaterieDB"));
     if(DB.length > 0) {
-      console.log("ORA GUARDO LE MEMBRA");
-      Foundation.utils.S("#listone").html("");
+      var listone = Foundation.utils.S("#listone");
+      //Pulisco tutto
+      listone.html("");
+      //Creo la tabella
+      listone.append("<div class='small-12 small-centered large-12 large-centered columns'><dl class='accordion' id='corpoListone' data-accordion>");
+      var corpoListone = Foundation.utils.S("#corpoListone");
       for(i=0; i < DB.length; i++) {
-        Foundation.utils.S("#listone").append("<div class='small-12 large-12 columns'><p class='materiaListone' id='"+DB[i].id+"'>"+DB[i].nome+"</p></div>");
+        corpoListone.append("<dd><a href='#panel"+DB[i].id+"'><p class='materiaListone text-center' id='"+DB[i].id+"'>"+DB[i].nome+"</p></a><div id='panel"+DB[i].id+"' class='content'><p>BAUUUU</p></div></dd>");
       }
-    }
-    else {
-      console.log("NESSUN DORMA");
+      listone.append("</dl></div>");
     }
   };
 

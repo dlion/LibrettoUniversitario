@@ -3,7 +3,12 @@
  */
 
 //Foundation
-$(document).foundation();
+$(document).foundation({
+  accordion: {
+    multi_expand: false,
+    toggleable: true
+  }
+});
 //Route->Init function
 Route.init();
 
