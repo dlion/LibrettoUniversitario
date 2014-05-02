@@ -1,12 +1,12 @@
-var Controller = (function(window,$) {
+var Controller = (function(window, $, Foundation) {
   /**
    * Funzione per mostrare a schermo gli alert usando i modal
    */
   var omgAlert = function (title, subtitle, msg) {
-    $("#omgAlertTitle").html(title);
-    $("#omgAlertSubtitle").html(subtitle);
-    $("#omgAlertMsg").html(msg);
-    $("#omgAlert").foundation('reveal', 'open');
+    Foundation.utils.S("#omgAlertTitle").html(title);
+    Foundation.utils.S("#omgAlertSubtitle").html(subtitle);
+    Foundation.utils.S("#omgAlertMsg").html(msg);
+    Foundation.utils.S("#omgAlert").foundation('reveal', 'open');
   };
 
   /**
@@ -31,9 +31,9 @@ var Controller = (function(window,$) {
     var DB = JSON.parse(window.localStorage.getItem("MaterieDB"));
     if(DB.length > 0) {
       console.log("ORA GUARDO LE MEMBRA");
-      $("#listone").html("");
+      Foundation.utils.S("#listone").html("");
       for(i=0; i < DB.length; i++) {
-        $("#listone").append("<div class='small-12 large-12 columns'><p class='materiaListone' id='"+DB[i].id+"'>"+DB[i].nome+"</p></div>");
+        Foundation.utils.S("#listone").append("<div class='small-12 large-12 columns'><p class='materiaListone' id='"+DB[i].id+"'>"+DB[i].nome+"</p></div>");
       }
     }
     else {
@@ -48,14 +48,14 @@ var Controller = (function(window,$) {
     var tmp, i;
     //Campi del form
     var form = [
-      $("#addMateriaCFU"),
-      $("#addMateriaNome"),
-      $("#addMateriaDocente"),
-      $("#addMateriaVoto"),
-      $("#addMateriaGiorno"),
-      $("#addMateriaMese"),
-      $("#addMateriaAnno"),
-      $("#addMateriaNote")
+      Foundation.utils.S("#addMateriaCFU"),
+      Foundation.utils.S("#addMateriaNome"),
+      Foundation.utils.S("#addMateriaDocente"),
+      Foundation.utils.S("#addMateriaVoto"),
+      Foundation.utils.S("#addMateriaGiorno"),
+      Foundation.utils.S("#addMateriaMese"),
+      Foundation.utils.S("#addMateriaAnno"),
+      Foundation.utils.S("#addMateriaNote")
     ];
 
     //Se non ci sono dati creo l'array
@@ -87,11 +87,11 @@ var Controller = (function(window,$) {
     showData();
 
     //Tolgo il modal
-    $("#addMateria").foundation('reveal', 'close');
+    Foundation.utils.S("#addMateria").foundation('reveal', 'close');
   };
 
   return {
     showData: showData,
     saveMateria: saveMateria
   };
-}(window, $));
+}(window, $, Foundation));

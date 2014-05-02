@@ -1,13 +1,13 @@
 //Route
-var Route = (function($, Controller) {
+var Route = (function($, Controller, Foundation) {
   var bindAction =  function () {
-    $("#aggiungiMateria").on("click", function() {
-      $("#addMateria").foundation('reveal', 'open');
+    Foundation.utils.S("#aggiungiMateria").on("click", function() {
+      Foundation.utils.S("#addMateria").foundation('reveal', 'open');
     });
 
-    $("#addMateriaInvia").on("click", Controller.saveMateria);
-    //$("#statistiche").on("click", showStatistiche);
-    //$("#aboutMe").on("click", showAboutMe);
+    Foundation.utils.S("#addMateriaInvia").on("click", Controller.saveMateria);
+    //Foundation.utils.S("#statistiche").on("click", showStatistiche);
+    //Foundation.utils.S("#aboutMe").on("click", showAboutMe);
   };
 
   return {
@@ -19,4 +19,4 @@ var Route = (function($, Controller) {
       bindAction();
     }
   };
-}($, Controller));
+}($, Controller, Foundation));
