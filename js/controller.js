@@ -95,6 +95,11 @@ var Controller = (function(window, $, Foundation) {
       }
       corpoListone.append("</dl></div>");
     }
+    Foundation.utils.S("dd > a").off("click");
+    Foundation.utils.S("dd > a").on("click", function() {
+      Foundation.utils.S(this).next().toggleClass("active");
+      return false;
+    });
   };
 
   /**
