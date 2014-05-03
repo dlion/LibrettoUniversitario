@@ -34,12 +34,12 @@ var Controller = (function(window, $, Foundation) {
       //Pulisco tutto
       listone.html("");
       //Creo la tabella
-      listone.append("<div class='small-12 small-centered large-12 large-centered columns'><dl class='accordion' id='corpoListone' data-accordion>");
+      listone.append("<dl class='accordion' id='corpoListone' data-accordion='materiozze'>");
       var corpoListone = Foundation.utils.S("#corpoListone");
       for(i=0; i < DB.length; i++) {
-        corpoListone.append("<dd><a href='#panel"+DB[i].id+"'><p class='materiaListone text-center' id='"+DB[i].id+"'>"+DB[i].nome+"</p></a><div id='panel"+DB[i].id+"' class='content'><p>BAUUUU</p></div></dd>");
+        corpoListone.append("<dd><a href='#materia"+DB[i].id+"'><p class='materiaListone text-center' id='"+DB[i].id+"'>"+DB[i].nome+"</p></a><div id='materia"+DB[i].id+"' class='content'><p>Questo è un gran bel contenuto</p></div></dd>");
       }
-      listone.append("</dl></div>");
+      corpoListone.append("</dl></div>");
     }
   };
 
