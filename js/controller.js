@@ -21,23 +21,77 @@ var Controller = (function(window, $, Foundation) {
   };
 
   /**
+   * Progress Bar Percentuals
+   */
+  var percentual = function(voto) {
+    if(voto === "I" || voto === "30L") {
+      voto = 30;
+    }
+    return parseFloat(voto-17) / 13.0 * 100;
+  };
+
+  var fillTables = function(db) {
+    var status;
+    if(db.voto === "I") {
+      status = "secondary";
+    } else if (db.voto >= 18 && db.voto <= 22) {
+      status = "alert";
+    } else if (db.voto > 22 && db.voto <= 25) {
+      status = "warning";
+    } else if ((db.voto > 25 && db.voto <= 30) || db.voto === "30L") {
+      status = "success";
+    }
+
+    var tables = "<dd>";
+        tables +=   "<a href='#materia"+db.id+"'>";
+        tables +=     "<p class='materiaListone text-center' id='"+db.id+"'>"+db.nome+"</p>";
+        tables +=   "</a>";
+        tables +=   "<div id='materia"+db.id+"' class='content'>";
+        tables +=     "<div class='progress "+status+"'>";
+        tables +=       "<span class='meter' style='width: "+percentual(db.voto)+"%'></span>";
+        tables +=     "</div>";
+        tables +=     "<div class='row'>";
+        tables +=       "<div class='small-4 large-4 columns'>";
+        tables +=         "<label>CFU";
+        tables +=           "<p class='contenutoCFU'>"+db.cfu+"</p>";
+        tables +=         "</label>";
+        tables +=       "</div>";
+        if(db.giorno && db.mese && db.anno) {
+          tables +=       "<div class='small-4 large-4 columns'>";
+          tables +=         "<label class='text-center'>DATA";
+          tables +=           "<p class='text-center contenutoDATA'>"+db.giorno+"-"+db.mese+"-"+db.anno+"</p>";
+          tables +=         "</label>";
+          tables +=       "</div>";
+        }
+        tables +=       "<div class='small-4 large-4 columns'>";
+        tables +=         "<label class='text-center'>VOTO";
+        tables +=           "<p class='contenutoVOTO text-center'>"+db.voto+"</p>";
+        tables +=         "</label>";
+        tables +=       "</div>";
+        tables +=     "</div>";
+        tables +=   "</dd>";
+
+        return tables;
+  };
+
+  /**
    * Funzione per mostrare i dati del localStorage
    */
   var showData = function () {
-    var i;
+    var i, listone, corpoListone;
     //Se non esiste lo creo
     checkData();
     //Prendo i dati
     var DB = JSON.parse(window.localStorage.getItem("MaterieDB"));
     if(DB.length > 0) {
-      var listone = Foundation.utils.S("#listone");
+      listone = Foundation.utils.S("#listone");
       //Pulisco tutto
       listone.html("");
       //Creo la tabella
       listone.append("<dl class='accordion' id='corpoListone' data-accordion='materiozze'>");
-      var corpoListone = Foundation.utils.S("#corpoListone");
+      corpoListone = Foundation.utils.S("#corpoListone");
       for(i=0; i < DB.length; i++) {
-        corpoListone.append("<dd><a href='#materia"+DB[i].id+"'><p class='materiaListone text-center' id='"+DB[i].id+"'>"+DB[i].nome+"</p></a><div id='materia"+DB[i].id+"' class='content'><p>Questo è un gran bel contenuto</p></div></dd>");
+        corpoListone.append(fillTables(DB[i]));
       }
       corpoListone.append("</dl></div>");
     }
