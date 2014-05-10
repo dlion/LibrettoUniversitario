@@ -136,19 +136,18 @@ var Controller = (function(window, $, Foundation) {
       id: (tmp.length)+1
     };
 
-    tmp.push(dati);
-    window.localStorage.setItem("MaterieDB", JSON.stringify(tmp));
-
-    //Pulisco i campi
-    for(i=0; i < form.length; i++) {
-      form[i].val("");
+    if(dati.cfu.length > 0 && dati.nome.length > 0 && dati.voto.length > 0) {
+      tmp.push(dati);
+      window.localStorage.setItem("MaterieDB", JSON.stringify(tmp));
+      //Pulisco i campi
+      for(i=0; i < form.length; i++) {
+        form[i].val("");
+      }
+      //Mostro i dati a schermo
+      showData();
+      //Tolgo il modal
+      Foundation.utils.S("#addMateria").foundation('reveal', 'close');
     }
-
-    //Mostro i dati a schermo
-    showData();
-
-    //Tolgo il modal
-    Foundation.utils.S("#addMateria").foundation('reveal', 'close');
   };
 
   return {
