@@ -69,6 +69,14 @@ var Controller = (function(window, $, Foundation) {
         tables +=         "</label>";
         tables +=       "</div>";
         tables +=     "</div>";
+        tables +=     "<div class='row'>";
+        tables +=       "<div class='small-12 small-centered large-4 large-offset-4 large-centered columns'>";
+        tables +=           "<ul class='button-group'>";
+        tables +=             "<li><a class='editMateria button small-tiny large-small' id='"+db.id+"' href='#'>Modifica</a></li>";
+        tables +=             "<li><a class='editMateria button alert small-only-tiny large-small' id='"+db.id+"' href='#'>Cancella</a></li>";
+        tables +=           "</ul>";
+        tables +=       "</div>";
+        tables +=     "</div>";
         tables +=   "</dd>";
 
         return tables;
