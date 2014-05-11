@@ -3,6 +3,11 @@ body {
     background-color: #BBB;
 }
 
+/* Rimuove i puntini dai link */
+a:link {
+    outline-style: none;
+}
+
 /* Spazio fra l'icona e il titolo */
 .title-menutopbar {
     margin-left: 10px;

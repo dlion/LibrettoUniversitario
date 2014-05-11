@@ -3,7 +3,7 @@
   "name": "Libretto Universitario",
   "description": "Il tuo libretto universitario",
   "launch_path": "/index.html",
-  "fullscreen": "true",
+  "fullscreen": true,
   "icons": {
     "48": "/icons/icon-48.png",
     "128": "/icons/icon-48.png"
