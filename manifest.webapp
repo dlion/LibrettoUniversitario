@@ -2,11 +2,11 @@
   "version": "0.1",
   "name": "Libretto Universitario",
   "description": "Il tuo libretto universitario",
-  "launch_path": "/web/index.html",
+  "launch_path": "/index.html",
   "fullscreen": true,
   "icons": {
-    "48": "/web/img/icon-48.png",
-    "128": "/web/img/icon-48.png"
+    "48": "/img/icon-48.png",
+    "128": "/img/icon-48.png"
   },
   "developer": {
     "name": "Domenico Luciani",
