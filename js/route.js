@@ -11,9 +11,14 @@ var Route = (function($, Controller, Foundation) {
     //Cancella una materia
     Foundation.utils.S(".deleteMateria").on("click", Foundation.utils.debounce(Controller.deleteMateria, 300, true));
 
-    //Foundation.utils.S("#statistiche").on("click", showStatistiche);
-    //Foundation.utils.S("#aboutMe").on("click", showAboutMe);
-    // Trick to use accordion
+    //Modal per editare una materia
+    Foundation.utils.S(".editMateria").on("click", Foundation.utils.throttle(function() {
+      Controller.riempi(this.id);
+      Foundation.utils.S("#editMateria").foundation('reveal', 'open');
+    }, 300));
+
+    //Edita la materia
+
   };
 
   return {

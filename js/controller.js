@@ -106,7 +106,7 @@ var Controller = (function(window, $, Foundation) {
       //Creo la tabella
       listone.append("<dl class='accordion' id='corpoListone' data-accordion='materiozze'>");
       corpoListone = Foundation.utils.S("#corpoListone");
-      for(i=0; i < DB.length; i++) {
+      for(i in DB) {
         corpoListone.append(fillTables(DB[i]));
       }
       corpoListone.append("</dl></div>");
@@ -174,18 +174,42 @@ var Controller = (function(window, $, Foundation) {
   var deleteMateria = function () {
     var id = this.id, i,
         tmp = JSON.parse(window.localStorage.getItem(dbMaterie));
-    for(i=0; i < tmp.length; i++) {
+    for(i in tmp) {
       if(tmp[i].id == id) {
         tmp.splice(i, 1);
+        break;
       }
     }
     window.localStorage.setItem(dbMaterie, JSON.stringify(tmp));
     showData();
   };
 
+  var riempi = function (campo, id) {
+    var dati = JSON.parse(window.localStorage.getItem(dbMaterie)),
+        index;
+
+    //Scorro l'oggetto
+    for(index in dati){
+      //Se trovo quello cercato
+      if(dati[index].id == id) {
+        //Setto i campi con i valori trovati
+        Foundation.utils.S("#editMateriaCFU").val(dati[index].cfu);
+        Foundation.utils.S("#editMateriaNome").val(dati[index].nome);
+        Foundation.utils.S("#editMateriaDocente").val(dati[index].docente);
+        Foundation.utils.S("#editMateriaVoto").val(dati[index].voto);
+        Foundation.utils.S("#editMateriaGiorno").val(dati[index].giorno);
+        Foundation.utils.S("#editMateriaMese").val(dati[index].mese);
+        Foundation.utils.S("#editMateriaAnno").val(dati[index].anno);
+        Foundation.utils.S("#editMateriaNote").val(dati[index].note);
+        break;
+      }
+    }
+  };
+
   return {
     showData: showData,
     saveMateria: saveMateria,
-    deleteMateria: deleteMateria
+    deleteMateria: deleteMateria,
+    riempi: riempi
   };
 }(window, $, Foundation));

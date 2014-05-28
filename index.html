@@ -179,6 +179,131 @@
         </form>
     </div>
 
+    <!-- Per modificare -->
+    <div id="editMateria" class="reveal-modal large" data-reveal>
+        <form data-abide>
+            <div class="row">
+                <div class="large-12 columns">
+                    <h2 class="addMateriaTitolo">Modifica Materia</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <label>CFU
+                        <input type="text" id="editMateriaCFU" required pattern="number" autofocus />
+                    </label>
+                    <small class="error">Inserisci dei CFU validi.</small>
+                </div>
+                <div class="large-4 columns">
+                    <label>Nome Materia
+                        <input type="text" id="editMateriaNome" required />
+                    </label>
+                    <small class="error">Inserisci un nome valido.</small>
+                </div>
+                <div class="large-4 columns">
+                    <label>Docente
+                        <input type="text" id="editMateriaDocente" />
+                    </label>
+                    <small class="error">Inserisci un nome valido</small>
+                </div>
+                <div class="large-12 columns">
+                    <label>Voto
+                        <select id="editMateriaVoto" required pattern="alpha_numeric">
+                            <option value="I">Idoneo</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="30L">30/lode</option>
+                        </select>
+                    </label>
+                    <small class="error">Inserisci un voto valido.</small>
+                </div>
+                <div class="large-4 columns">
+                    <label>Giorno
+                        <select id="editMateriaGiorno" pattern="number">
+                            <option value='1' selected>01</option>
+                            <option value='2'>02</option>
+                            <option value='3'>03</option>
+                            <option value='4'>04</option>
+                            <option value='5'>05</option>
+                            <option value='6'>06</option>
+                            <option value='7'>07</option>
+                            <option value='8'>08</option>
+                            <option value='9'>09</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                            <option value='13'>13</option>
+                            <option value='14'>14</option>
+                            <option value='15'>15</option>
+                            <option value='16'>16</option>
+                            <option value='17'>17</option>
+                            <option value='18'>18</option>
+                            <option value='19'>19</option>
+                            <option value='20'>20</option>
+                            <option value='21'>21</option>
+                            <option value='22'>22</option>
+                            <option value='23'>23</option>
+                            <option value='24'>24</option>
+                            <option value='25'>25</option>
+                            <option value='26'>26</option>
+                            <option value='27'>27</option>
+                            <option value='28'>28</option>
+                            <option value='29'>29</option>
+                            <option value='30'>30</option>
+                            <option value='31'>31</option>
+                        </select>
+                    </label>
+                    <small class="error">Inserisci un giorno valido.</small>
+                </div>
+                <div class="large-4 columns">
+                    <label>Mese
+                        <select id="editMateriaMese" pattern="number">
+                            <option value='1' selected>01</option>
+                            <option value='2'>02</option>
+                            <option value='3'>03</option>
+                            <option value='4'>04</option>
+                            <option value='5'>05</option>
+                            <option value='6'>06</option>
+                            <option value='7'>07</option>
+                            <option value='8'>08</option>
+                            <option value='9'>09</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                        </select>
+                    </label>
+                    <small class="error">Inserisci un mese valido.</small>
+                </div>
+                <div class="large-4 columns">
+                    <label>Anno
+                        <input type="text" id="editMateriaAnno" pattern="number" />
+                    </label>
+                    <small class="error">Inserisci un anno valido.</small>
+                </div>
+                <div class="large-12 columns">
+                    <label>Note
+                        <textarea placeholder="Note" id="editMateriaNote"></textarea>
+                    </label>
+                </div>
+                <div class="large-12 columns">
+                    <button href="#" class="button expand" type="submit" id="editMateriaInvia">Salva</button>
+                </div>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </form>
+    </div>
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/controller.js"></script>
