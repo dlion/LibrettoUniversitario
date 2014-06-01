@@ -77,8 +77,8 @@ var Controller = (function(window, $, Foundation) {
           tables +=     "<div class='row'>";
           tables +=       "<div class='small-12 small-centered large-4 large-offset-4 large-centered columns'>";
           tables +=           "<ul class='button-group'>";
-          tables +=             "<li><a class='editMateria button small large-small' id='"+db.id+"' href='#'>Modifica</a></li>";
-          tables +=             "<li><a class='deleteMateria button alert small large-small' id='"+db.id+"' href='#'>Cancella</a></li>";
+          tables +=             "<li><a class='editMateria button small large-small' id='"+db.id+"m' href='#'>Modifica</a></li>";
+          tables +=             "<li><a class='deleteMateria button alert small large-small' id='"+db.id+"d' href='#'>Cancella</a></li>";
           tables +=           "</ul>";
           tables +=       "</div>";
           tables +=     "</div>";
@@ -118,6 +118,11 @@ var Controller = (function(window, $, Foundation) {
     });
     Foundation.utils.S(".deleteMateria").off("click");
     Foundation.utils.S(".deleteMateria").on("click", deleteMateria);
+    Foundation.utils.S(".editMateria").off("click");
+    Foundation.utils.S(".editMateria").on("click",function() {
+      riempi();
+      Foundation.utils.S("#editMateria").foundation('reveal', 'open');
+    });
   };
 
   /**
@@ -175,7 +180,7 @@ var Controller = (function(window, $, Foundation) {
     var id = this.id, i,
         tmp = JSON.parse(window.localStorage.getItem(dbMaterie));
     for(i in tmp) {
-      if(tmp[i].id == id) {
+      if(tmp[i].id+'d' == id) {
         tmp.splice(i, 1);
         break;
       }
@@ -184,14 +189,15 @@ var Controller = (function(window, $, Foundation) {
     showData();
   };
 
-  var riempi = function (campo, id) {
+  var riempi = function () {
     var dati = JSON.parse(window.localStorage.getItem(dbMaterie)),
+        id = window.document.activeElement.id,
         index;
 
     //Scorro l'oggetto
     for(index in dati){
       //Se trovo quello cercato
-      if(dati[index].id == id) {
+      if(dati[index].id+'m' == id) {
         //Setto i campi con i valori trovati
         Foundation.utils.S("#editMateriaCFU").val(dati[index].cfu);
         Foundation.utils.S("#editMateriaNome").val(dati[index].nome);
@@ -201,8 +207,77 @@ var Controller = (function(window, $, Foundation) {
         Foundation.utils.S("#editMateriaMese").val(dati[index].mese);
         Foundation.utils.S("#editMateriaAnno").val(dati[index].anno);
         Foundation.utils.S("#editMateriaNote").val(dati[index].note);
+        Foundation.utils.S(".editMateriaInvia").attr("id", dati[index].id);
+        console.log("IDTROVATO");
         break;
       }
+    }
+    //Edita la materia
+    Foundation.utils.S(".editMateriaInvia").on("click", Foundation.utils.debounce(
+          function() {
+            Controller.setEdit();
+            Foundation.utils.S("#editMateria").foundation('reveal', 'close');
+          }, 300, true));
+  };
+
+  var setEdit = function () {
+    //Campi del form
+    var form = [
+      Foundation.utils.S("#editMateriaCFU"),
+      Foundation.utils.S("#editMateriaNome"),
+      Foundation.utils.S("#editMateriaDocente"),
+      Foundation.utils.S("#editMateriaVoto"),
+      Foundation.utils.S("#editMateriaGiorno"),
+      Foundation.utils.S("#editMateriaMese"),
+      Foundation.utils.S("#editMateriaAnno"),
+      Foundation.utils.S("#editMateriaNote"),
+      Foundation.utils.S(".editMateriaInvia")
+    ];
+
+    //Accodo gli elementi al localStorage
+    var tmp = JSON.parse(window.localStorage.getItem(dbMaterie)),
+        i;
+    //Oggetto da aggiungere al localStorage
+    var dati = {
+      cfu: form[0].val(),
+      nome: form[1].val(),
+      docente: form[2].val(),
+      voto: form[3].val(),
+      giorno: form[4].val(),
+      mese: form[5].val(),
+      anno: form[6].val(),
+      note: form[7].val(),
+      idForm: form[8].attr('id')
+    };
+
+    if(dati.cfu.length > 0 && dati.nome.length > 0 && dati.voto.length > 0) {
+      for(i in tmp) {
+        if(tmp[i].id == dati.idForm) {
+          tmp[i].cfu = dati.cfu;
+          tmp[i].nome = dati.nome;
+          tmp[i].docente = dati.docente;
+          tmp[i].voto = dati.voto;
+          tmp[i].giorno = dati.giorno;
+          tmp[i].mese = dati.mese;
+          tmp[i].anno = dati.anno;
+          tmp[i].note = dati.note;
+          console.log("TROVATI E AGGIORNATI");
+          console.log(tmp[i]);
+          break;
+        }
+      }
+
+      window.localStorage.setItem(dbMaterie, JSON.stringify(tmp));
+
+      //Pulisco i campi
+      for(i=0; i < form.length; i++) {
+        form[i].val("");
+        form[i].blur();
+      }
+
+      //Mostro i dati a schermo
+      showData();
+
     }
   };
 
@@ -210,6 +285,7 @@ var Controller = (function(window, $, Foundation) {
     showData: showData,
     saveMateria: saveMateria,
     deleteMateria: deleteMateria,
-    riempi: riempi
+    riempi: riempi,
+    setEdit: setEdit
   };
 }(window, $, Foundation));
