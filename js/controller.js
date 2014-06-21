@@ -73,6 +73,11 @@ var Controller = (function(window, $, Foundation) {
           tables +=           "<p class='contenutoVOTO text-center'>"+db.voto+"</p>";
           tables +=         "</label>";
           tables +=       "</div>";
+          tables +=       "<div class='small-12 large-12 columns'>";
+          tables +=         "<label class='text-center'>NOTE";
+          tables +=           "<blockquote class='contenutoNOTE'>"+db.note+"</blockquote>";
+          tables +=           "</label>";
+          tables +=         "</div>";
           tables +=     "</div>";
           tables +=     "<div class='row'>";
           tables +=       "<div class='small-12 small-centered large-4 large-offset-4 large-centered columns'>";
