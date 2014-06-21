@@ -20,6 +20,13 @@ var Route = (function($, Controller, Foundation) {
           Foundation.utils.S("#editMateria").foundation('reveal', 'open');
           Controller.riempi();
         }, 300));
+
+    // Informazioni
+    Foundation.utils.S("#informazioni").on("click", Foundation.utils.throttle(
+      function() {
+      Foundation.utils.S("#aboutMe").foundation('reveal', 'open');
+    }, 300));
+
   };
 
   return {
