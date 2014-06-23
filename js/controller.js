@@ -99,7 +99,11 @@ var Controller = (function(window, $, Foundation) {
    * Funzione per mostrare i dati del localStorage
    */
   var showData = function () {
-    var i, listone, corpoListone;
+    var i,
+        listone,
+        corpoListone,
+        tables = '';
+
     //Se non esiste lo creo
     checkData();
     //Prendo i dati
@@ -112,9 +116,9 @@ var Controller = (function(window, $, Foundation) {
       listone.append("<dl class='accordion' id='corpoListone' data-accordion='materiozze'>");
       corpoListone = Foundation.utils.S("#corpoListone");
       for(i in DB) {
-        corpoListone.append(fillTables(DB[i]));
+        tables += fillTables(DB[i]);
       }
-      corpoListone.append("</dl></div>");
+      corpoListone.append(tables+"</dl></div>");
     } else {
       listone.append("<p class='empty center'>Nessuna materia</p>");
     }
@@ -216,7 +220,6 @@ var Controller = (function(window, $, Foundation) {
         Foundation.utils.S("#editMateriaAnno").val(dati[index].anno);
         Foundation.utils.S("#editMateriaNote").val(dati[index].note);
         Foundation.utils.S(".editMateriaInvia").attr("id", dati[index].id);
-        console.log("IDTROVATO");
         break;
       }
     }
@@ -269,7 +272,6 @@ var Controller = (function(window, $, Foundation) {
           tmp[i].mese = dati.mese;
           tmp[i].anno = dati.anno;
           tmp[i].note = dati.note;
-          console.log("TROVATI E AGGIORNATI");
           console.log(tmp[i]);
           break;
         }
@@ -293,11 +295,11 @@ var Controller = (function(window, $, Foundation) {
     //Qui faccio le statistiche
     var mt = JSON.parse(window.localStorage.getItem(dbMaterie));
     var numEsami        =   0,
-        mediaAritmetica,
-        mediaPonderata,
         sum             =   0,
         sumCFU          =   0,
         moltCFU         =   0,
+        mediaAritmetica,
+        mediaPonderata,
         index,
         campi = [
           Foundation.utils.S("#statsNumEsami"),
@@ -312,7 +314,6 @@ var Controller = (function(window, $, Foundation) {
         numEsami += 1;
         sum += (mt[index].voto == "30L") ? 30 : parseInt(mt[index].voto);
         sumCFU += parseInt(mt[index].cfu);
-        console.log("VOTO: "+parseInt(mt[index].voto)+" CFU: "+parseInt(mt[index].cfu)+" FUSIONE: "+(parseInt(mt[index].voto * mt[index].cfu)));
         moltCFU += (mt[index].voto == "30L") ? 30*parseInt(mt[index].cfu) : (parseInt(mt[index].voto) * parseInt(mt[index].cfu));
       }
     }
