@@ -24,8 +24,15 @@ var Route = (function($, Controller, Foundation) {
     // Informazioni
     Foundation.utils.S("#informazioni").on("click", Foundation.utils.throttle(
       function() {
-      Foundation.utils.S("#aboutMe").foundation('reveal', 'open');
-    }, 300));
+        Foundation.utils.S("#aboutMe").foundation('reveal', 'open');
+      }, 300));
+
+    // Statistiche
+    Foundation.utils.S("#statistiche").on("click", Foundation.utils.throttle(
+      function() {
+        Foundation.utils.S("#stats").foundation('reveal', 'open');
+        Controller.faiStats();
+      }, 400));
 
   };
 

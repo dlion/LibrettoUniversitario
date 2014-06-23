@@ -103,11 +103,11 @@ var Controller = (function(window, $, Foundation) {
     //Se non esiste lo creo
     checkData();
     //Prendo i dati
-    var DB = JSON.parse(window.localStorage.getItem(dbMaterie));
+    var DB      = JSON.parse(window.localStorage.getItem(dbMaterie)),
+        listone = Foundation.utils.S("#listone");
+    //Pulisco tutto
+    listone.html("");
     if(DB.length > 0) {
-      listone = Foundation.utils.S("#listone");
-      //Pulisco tutto
-      listone.html("");
       //Creo la tabella
       listone.append("<dl class='accordion' id='corpoListone' data-accordion='materiozze'>");
       corpoListone = Foundation.utils.S("#corpoListone");
@@ -115,6 +115,8 @@ var Controller = (function(window, $, Foundation) {
         corpoListone.append(fillTables(DB[i]));
       }
       corpoListone.append("</dl></div>");
+    } else {
+      listone.append("<p class='empty center'>Nessuna materia</p>");
     }
     Foundation.utils.S("dd > a").off("click");
     Foundation.utils.S("dd > a").on("click", function() {
@@ -128,6 +130,7 @@ var Controller = (function(window, $, Foundation) {
       riempi();
       Foundation.utils.S("#editMateria").foundation('reveal', 'open');
     });
+
   };
 
   /**
@@ -286,11 +289,49 @@ var Controller = (function(window, $, Foundation) {
     }
   };
 
+  var faiStats = function() {
+    //Qui faccio le statistiche
+    var mt = JSON.parse(window.localStorage.getItem(dbMaterie));
+    var numEsami        =   0,
+        mediaAritmetica,
+        mediaPonderata,
+        sum             =   0,
+        sumCFU          =   0,
+        moltCFU         =   0,
+        index,
+        campi = [
+          Foundation.utils.S("#statsNumEsami"),
+          Foundation.utils.S("#statsMediaAritmetica"),
+          Foundation.utils.S("#statsMediaPonderata"),
+          Foundation.utils.S("#statsBaseLaurea")
+        ];
+
+
+    for(index in mt) {
+      if(mt[index].voto != "I") {
+        numEsami += 1;
+        sum += (mt[index].voto == "30L") ? 30 : parseInt(mt[index].voto);
+        sumCFU += parseInt(mt[index].cfu);
+        console.log("VOTO: "+parseInt(mt[index].voto)+" CFU: "+parseInt(mt[index].cfu)+" FUSIONE: "+(parseInt(mt[index].voto * mt[index].cfu)));
+        moltCFU += (mt[index].voto == "30L") ? 30*parseInt(mt[index].cfu) : (parseInt(mt[index].voto) * parseInt(mt[index].cfu));
+      }
+    }
+    mediaAritmetica = (sum > 0)     ? sum / parseInt(numEsami)  : "Nessun dato";
+    mediaPonderata  = (moltCFU > 0) ? moltCFU / sumCFU          : "Nessun dato";
+    for(index in campi) {
+      campi[index].html("");
+    }
+    campi[0].append("Numero esami: "+mt.length);
+    campi[1].append("Media aritmetica: "+mediaAritmetica);
+    campi[2].append("Media ponderata: "+mediaPonderata);
+  };
+
   return {
     showData: showData,
     saveMateria: saveMateria,
     deleteMateria: deleteMateria,
     riempi: riempi,
-    setEdit: setEdit
+    setEdit: setEdit,
+    faiStats: faiStats
   };
 }(window, $, Foundation));
