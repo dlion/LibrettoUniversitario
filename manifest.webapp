@@ -22,5 +22,16 @@
           "name": "Libretto Universitario",
           "description": "Semplice applicazione per tenere traccia dei tuoi risultati universitari"
       }
+  },
+  "activities": {
+      "view": {
+          "filters": {
+              "type": "url",
+              "url": {
+                  "required": "true",
+                  "regexp": "/^http?:/"
+              }
+          }
+      }
   }
 }
