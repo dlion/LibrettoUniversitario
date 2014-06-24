@@ -35,7 +35,7 @@
       },
       "email": {
           "filters": {
-              "type": "mail",
+              "type": "url",
               "url": {
                   "required": "true",
                   "regexp": "mailto:domenicoleoneluciani@gmail.com"
