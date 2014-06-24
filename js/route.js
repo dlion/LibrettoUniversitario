@@ -34,6 +34,54 @@ var Route = (function($, Controller, Foundation) {
         Controller.faiStats();
       }, 400));
 
+      //Click sui vari link
+      Foundation.utils.S("#linkEmail").on("click", function() {
+        new MozActivity({
+          name: "linkEmail",
+          data: {
+            type: "mail",
+            url:  "mailto:domenicoleoneluciani@gmail.com"
+          }
+        });
+      });
+
+      Foundation.utils.S("#linkSito").on("click", function() {
+        new MozActivity({
+          name: "linkSito",
+          data: {
+            type: "url",
+            url: "http://dlion.it",
+            name: "Domenico Luciani | DLion ~ Blog",
+            icon: "http://dlion.it/favicon.ico"
+          }
+        });
+      });
+
+      Foundation.utils.S("#linkTwitter").on("click", function() {
+        new MozActivity({
+          name: "LinkTwitter",
+          data: {
+            type: "url",
+            url: "http://twitter.com/dlion92",
+            name: "Twitter",
+            icon: "http://twitter.com/favicon.ico"
+          }
+        });
+      });
+
+      Foundation.utils.S("#linkGithub").on("click", function() {
+        new MozActivity({
+          name: "LinkGithub",
+          data: {
+            type: "url",
+            url: "http://github.com/DLion",
+            name: "Github",
+            icon: "http://github.com/favicon.ico"
+          }
+        });
+      });
+
+
   };
 
   return {

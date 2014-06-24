@@ -55,3 +55,8 @@ dd:first-child > a {
 dd:last-child > a {
     border-bottom: 5px solid #FFF;
 }
+
+#linkEmail, #linkGithub, #linkSito, #linkTwitter {
+    color: #008CBA;
+    cursor: pointer;
+}
