@@ -2,20 +2,19 @@
   "version": "1.0.0",
   "name": "Libretto Universitario",
   "description": "Semplice applicazione per tenere traccia dei tuoi risultati universitari",
-  "launch_path": "/index.html",
-  "fullscreen": true,
+  "launch_path": "/LibrettoUniversitario/index.html",
   "icons": {
-    "48": "/icon-48.png",
-    "128": "/icon-128.png"
+    "48": "/LibrettoUniversitario/icon-48.png",
+    "128": "/LibrettoUniversitario/icon-128.png",
   },
   "developer": {
     "name": "Domenico Luciani",
     "url": "http://dlion.it"
   },
-  "default_locale": "it",
   "installs_allowed_from": [
     "*"
   ],
+  "default_locale": "it",
   "locales": {
       "it": {
           "name": "Libretto Universitario",
