@@ -1,13 +1,15 @@
 CACHE MANIFEST
-
+#css
 /LibrettoUniversitario/css/custom.css
 /LibrettoUniversitario/css/foundation.min.css
 /LibrettoUniversitario/css/normalize.css
+/LibrettoUniversitario/foundation-icons/foundation-icons.css
+#fonts
 /LibrettoUniversitario/foundation-icons/foundation-icons.woff
 /LibrettoUniversitario/foundation-icons/foundation-icons.ttf
 /LibrettoUniversitario/foundation-icons/foundation-icons.svg
 /LibrettoUniversitario/foundation-icons/foundation-icons.eot
-/LibrettoUniversitario/foundation-icons/foundation-icons.css
+#js
 /LibrettoUniversitario/js/app.js
 /LibrettoUniversitario/js/controller.js
 /LibrettoUniversitario/js/foundation.min.js
@@ -35,8 +37,10 @@ CACHE MANIFEST
 /LibrettoUniversitario/js/foundation/foundation.slider.js
 /LibrettoUniversitario/js/foundation/foundation.tab.js
 /LibrettoUniversitario/js/foundation/foundation.tooltip.js
+#img
 /LibrettoUniversitario/icon-128.png
 /LibrettoUniversitario/icon-49.png
+#html
 /LibrettoUniversitario/index.html
 
 NETWORK:
