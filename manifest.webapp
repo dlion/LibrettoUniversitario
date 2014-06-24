@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Libretto Universitario",
   "description": "Semplice applicazione per tenere traccia dei tuoi risultati universitari",
-  "launch_path": "/index.html",
+  "launch_path": "/LibrettoUniversitario/index.html",
   "fullscreen": "true",
   "icons": {
     "48": "/LibrettoUniversitario/icon-48.png",
