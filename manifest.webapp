@@ -32,15 +32,6 @@
                   "regexp": "/^http?:/"
               }
           }
-      },
-      "email": {
-          "filters": {
-              "type": "url",
-              "url": {
-                  "required": "true",
-                  "regexp": "mailto:domenicoleoneluciani@gmail.com"
-              }
-          }
       }
   }
 }

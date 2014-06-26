@@ -14,7 +14,6 @@ CACHE MANIFEST
 /LibrettoUniversitario/js/controller.js
 /LibrettoUniversitario/js/foundation.min.js
 /LibrettoUniversitario/js/route.js
-/LibrettoUniversitario/js/vendor/route.js
 /LibrettoUniversitario/js/vendor/fastclick.js
 /LibrettoUniversitario/js/vendor/jquery.cookie.js
 /LibrettoUniversitario/js/vendor/jquery.js
@@ -39,7 +38,7 @@ CACHE MANIFEST
 /LibrettoUniversitario/js/foundation/foundation.tooltip.js
 #img
 /LibrettoUniversitario/icon-128.png
-/LibrettoUniversitario/icon-49.png
+/LibrettoUniversitario/icon-48.png
 #html
 /LibrettoUniversitario/index.html
 
