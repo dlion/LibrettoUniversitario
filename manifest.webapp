@@ -25,31 +25,31 @@
   },
   "activities": {
       "viewGithub": {
-          "href": "http://github.com/DLion",
+          "href": "/LibrettoUniversitario/index.html",
           "filters": {
               "type": "url",
               "url": {
-                  "required":"true",
+                  "required":true,
                   "regexp": "/^https?:.{1,16384}$/"
               }
           }
       },
       "viewTwitter": {
-          "href": "http://twitter.com/dlion92",
+          "href": "/LibrettoUniversitario/index.html",
           "filters": {
               "type": "url",
               "url": {
-                  "required":"true",
+                  "required":true,
                   "regexp": "/^https?:.{1,16384}$/"
               }
           }
       },
       "viewSite": {
-          "href": "http://dlion.it",
+          "href": "/LibrettoUniversitario/index.html",
           "filters": {
               "type": "url",
               "url": {
-                  "required":"true",
+                  "required":true,
                   "regexp": "/^https?:.{1,16384}$/"
               }
           }
@@ -58,7 +58,7 @@
           "filters": {
               "type": "url",
               "url": {
-                  "required":"true",
+                  "required":true,
                   "regexp":"/^mailto:/"
               }
           }
