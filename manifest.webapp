@@ -29,7 +29,7 @@
           "filters": {
               "type": "url",
               "url": {
-                  "required":"true,
+                  "required":"true",
                   "regexp": "/^https?:.{1,16384}$/"
               }
           }
