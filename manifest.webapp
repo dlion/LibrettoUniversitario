@@ -27,39 +27,39 @@
       "viewGithub": {
           "href": "http://github.com/DLion",
           "filters": {
-              type: "url",
-              url: {
-                  required:true,
-                  regexp: /^https?:.{1,16384}$/
+              "type": "url",
+              "url": {
+                  "required":true,
+                  "regexp": /^https?:.{1,16384}$/
               }
           }
       },
       "viewTwitter": {
           "href": "http://github.com/dlion92",
           "filters": {
-              type: "url",
-              url: {
-                  required:true,
-                  regexp: /^https?:.{1,16384}$/
+              "type": "url",
+              "url": {
+                  "required":true,
+                  "regexp": /^https?:.{1,16384}$/
               }
           }
       },
       "viewSite": {
           "href": "http://dlion.it",
           "filters": {
-              type: "url",
-              url: {
-                  required:true,
-                  regexp: /^https?:.{1,16384}$/
+              "type": "url",
+              "url": {
+                  "required":true,
+                  "regexp": /^https?:.{1,16384}$/
               }
           }
       },
       "viewEmail": {
           "filters": {
-              type: "url",
-              url: {
-                  required:true,
-                  regexp:/^mailto:/
+              "type": "url",
+              "url": {
+                  "required":true,
+                  "regexp":/^mailto:/
               }
           }
       }
