@@ -29,9 +29,9 @@
               "type": "url",
               "url": {
                   "required": "true",
-                  "regexp": "/^http?:/",
-                  "href": "http://github.com/DLion"
-              }
+                  "regexp": "/^http?:/"
+              },
+              "href": "http://github.com/DLion"
           }
       },
       "viewTwitter": {
@@ -39,9 +39,9 @@
               "type": "url",
               "url": {
                   "required": "true",
-                  "regexp": "/^http?:/",
-                  "href": "http://twitter.com/dlion92"
-              }
+                  "regexp": "/^http?:/"
+              },
+              "href": "http://twitter.com/dlion92"
           }
       },
       "viewSite": {
@@ -49,9 +49,9 @@
               "type": "url",
               "url": {
                   "required": "true",
-                  "regexp": "/http?:/",
-                  "href": "http://dlion.it"
-              }
+                  "regexp": "/http?:/"
+              },
+              "href": "http://dlion.it"
           }
       }
   }
