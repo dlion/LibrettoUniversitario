@@ -35,7 +35,7 @@
           }
       },
       "viewTwitter": {
-          "href": "http://github.com/dlion92",
+          "href": "http://twitter.com/dlion92",
           "filters": {
               "type": "url",
               "url": {
@@ -58,8 +58,8 @@
           "filters": {
               "type": "url",
               "url": {
-                  "required":true,
-                  "regexp":/^mailto:/
+                  "required":"true",
+                  "regexp":"/^mailto:/"
               }
           }
       }
