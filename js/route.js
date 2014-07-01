@@ -81,6 +81,16 @@ var Route = (function($, Controller, Foundation) {
         });
       });
 
+      Foundation.utils.S("#linkEmail").on("click", function() {
+        new MozActivity({
+          name: "viewEmail",
+          data: {
+            type: "url",
+            url: "mailto:domenicoleoneluciani@gmail.com",
+            name: "Email"
+          }
+        });
+      });
 
   };
 
