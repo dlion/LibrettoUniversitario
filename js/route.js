@@ -47,7 +47,7 @@ var Route = (function($, Controller, Foundation) {
 
       Foundation.utils.S("#linkSito").on("click", function() {
         new MozActivity({
-          name: "view",
+          name: "viewSite",
           data: {
             type: "url",
             url: "http://dlion.it",
@@ -59,7 +59,7 @@ var Route = (function($, Controller, Foundation) {
 
       Foundation.utils.S("#linkTwitter").on("click", function() {
         new MozActivity({
-          name: "view",
+          name: "viewTwitter",
           data: {
             type: "url",
             url: "http://twitter.com/dlion92",
@@ -71,7 +71,7 @@ var Route = (function($, Controller, Foundation) {
 
       Foundation.utils.S("#linkGithub").on("click", function() {
         new MozActivity({
-          name: "view",
+          name: "viewGithub",
           data: {
             type: "url",
             url: "http://github.com/DLion",

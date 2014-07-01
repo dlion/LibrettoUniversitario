@@ -24,12 +24,33 @@
       }
   },
   "activities": {
-      "view": {
+      "viewGithub": {
           "filters": {
               "type": "url",
               "url": {
                   "required": "true",
-                  "regexp": "/^http?:/"
+                  "regexp": "/^http?:/",
+                  "href": "http://github.com/DLion"
+              }
+          }
+      },
+      "viewTwitter": {
+          "filters": {
+              "type": "url",
+              "url": {
+                  "required": "true",
+                  "regexp": "/^http?:/",
+                  "href": "http://twitter.com/dlion92"
+              }
+          }
+      },
+      "viewSite": {
+          "filters": {
+              "type": "url",
+              "url": {
+                  "required": "true",
+                  "regexp": "/http?:/",
+                  "href": "http://dlion.it"
               }
           }
       }
