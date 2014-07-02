@@ -55,13 +55,13 @@
           }
       },
       "viewEmail": {
+          "href": "/LibrettoUniversitario/index.html",
           "filters": {
               "type": "url",
               "url": {
                   "required":true,
                   "regexp":"/^mailto:/"
-              },
-              "href": "/LibrettoUniversitario/index.html"
+              }
           }
       }
   }
