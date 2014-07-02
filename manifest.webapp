@@ -60,7 +60,8 @@
               "url": {
                   "required":true,
                   "regexp":"/^mailto:/"
-              }
+              },
+              "href": "/LibrettoUniversitario/index.html"
           }
       }
   }
