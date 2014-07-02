@@ -43,6 +43,4 @@ CACHE MANIFEST
 /LibrettoUniversitario/index.html
 
 NETWORK:
-http://github.com/*
-http://twitter.com/*
-http://dlion.it/*
+*
